@@ -1,15 +1,14 @@
-﻿<Window x:Class="Chat_Course_Project.Login"
+﻿<Window x:Class="Chat_Course_Project.Window2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chat_Course_Project"
         mc:Ignorable="d"
-        Title="Log in" Height="250" Width="300">
+        Title="Window2" Height="450" Width="600">
     <Grid Background="#FF475059">
-        <Button FontSize="20" Background="#FFF37B53" Height="50" Width="100" Margin="99,122,93,44" Click="Log_In_Btn">
-            Login
-        </Button>
-        <TextBox Height="30" Margin="57,66,49,120" Name="usrname"/>
+        <ScrollViewer Height="400" Width="550" Background="White" Name="scroll_history">
+            
+        </ScrollViewer>
     </Grid>
 </Window>

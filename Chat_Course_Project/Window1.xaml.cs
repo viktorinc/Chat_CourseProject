@@ -19,39 +19,58 @@ namespace Chat_Course_Project
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Login : Window
     {
-        public string username { get; set; }
-        public string password { get; set; }
+       public List<User> users=new List<User>();
+        public User curr_user;
         Dictionary<string, string> dict;
-        public Window1()
+        public Login()
         {
-            
+            InitializeComponent();
+            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            this.Left = (screenWidth / 2) - (windowWidth / 2);
+            this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
         private void Log_In_Btn(object sender, RoutedEventArgs e)
         {
+
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
-                using (FileStream fs = new FileStream("../../User_Base.dat", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream("../../Users.dat", FileMode.OpenOrCreate))
                 {
-                    dict = (Dictionary<string, string>)formatter.Deserialize(fs);
-                    fs.Close();
+                    users = (List<User>)formatter.Deserialize(fs);
                 }
-                foreach (var el in dict)
-                {
-                    if (el.Key==username && el.Value==password)
-                    {
-                        this.Close();
-                    }
-                }
-                 MessageBox.Show("Error", "Incorrect login or password"); 
             }
             catch { }
+            try
+            {
+                foreach (var el in users)
+                {
+                    if (usrname.Text == el.name)
+                    {
+                        curr_user = el;
+                    }
+                }
+            }
+            catch { }
+            if (curr_user == null)
+            {
+                User new_user = new User(usrname.Text, 0);
+                users.Add(new_user);
+                curr_user = new_user;
+                using (FileStream fs = new FileStream("../../Users.dat", FileMode.OpenOrCreate))
+                {
+                    formatter.Serialize(fs, users);
+                }
+            }
+            this.Close();
+
         }
-        private void Reg_Btn(object sender, RoutedEventArgs e)
-        {
-            
-        }
+
     }
+
 }
