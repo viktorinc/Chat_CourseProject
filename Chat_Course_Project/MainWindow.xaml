@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:s="clr-namespace:Chat_Course_Project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="700"
+        Title="Chat" Height="750" Width="700"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}" 
         TextElement.FontWeight="Regular"
@@ -36,7 +36,7 @@
             <ColumnDefinition Width="231"/>
             <ColumnDefinition Width="230*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer FontSize="20" FontWeight="Bold" Name="Main_Chat" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="20,41,20,89" Background="#FFF37B53" Foreground="White">
+        <ScrollViewer  FontSize="20" FontWeight="Bold" Name="Main_Chat" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="20,41,20,89" Background="#FFF37B53" Foreground="White">
             <ScrollViewer.Effect>
                 <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
             </ScrollViewer.Effect>
@@ -51,35 +51,35 @@
                 <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
             </Button.Effect>
         </Button>
-        <ScrollViewer  Name="Scroll_Users" FontSize="20" Background="White" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="169" Margin="10,10,0,0" Grid.Row="1">
+        <ScrollViewer  Name="Scroll_Users" FontSize="20" Background="White" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="169" Margin="10,84,0,0" Grid.RowSpan="2">
             <ScrollViewer.Effect>
                 <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
             </ScrollViewer.Effect>
         </ScrollViewer>
-        <Button Margin="10,15,10,43" Content="Switch user" Click="Login_Btn_Clicked" Background="#FFF37B53" Grid.Row="2">
+        <Button Margin="10,48,10,10" Content="Switch user" Click="Login_Btn_Clicked" Background="#FFF37B53" Grid.Row="2">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
             </Button.Effect>
         </Button>
-        <TextBlock Margin="10,252,29,237" Grid.RowSpan="2" Foreground="White" FontSize="20">
+        <TextBlock Margin="20,50,19,169" Foreground="White" FontSize="20">
             Users and Count
         </TextBlock>
         <TextBlock FontSize="15" Foreground="White" Name="Cur_user_text" Margin="0,3,0,225">
             Current user:
         </TextBlock>
-        <Button Margin="10,54,10,4" Content="Connection history" Click="History_Clicked" Background="#FFF37B53" Grid.Row="2">
+        <Button Margin="10,3,10,55" Content="Connection history" Click="History_Clicked" Background="#FFF37B53" Grid.Row="3">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
             </Button.Effect>
         </Button>
         <Label Foreground="White" FontSize="15" Margin="208,0,0,234" Grid.Column="2" Name="Time"/>
-        <Button Margin="10,3,10,55" Content="Contacts" Click="Contacts_Clicked" Background="#FFF37B53" Grid.Row="3">
+        <Button Margin="10,48,10,10" Content="Contacts" Click="Contacts_Clicked" Background="#FFF37B53" Grid.Row="3">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
             </Button.Effect>
         </Button>
         <TextBlock Text="Global chat" Foreground="White" FontSize="25" Margin="173,3,141,222" Grid.ColumnSpan="2" Grid.Column="1">
-            
+
         </TextBlock>
     </Grid>
 

@@ -146,8 +146,15 @@ namespace Chat_Course_Project
             }
             catch
             {
-                curr.direct_messages.Add(write.name, "");
-                write.direct_messages.Add(curr.name, "");
+                try
+                {
+                    curr.direct_messages.Add(write.name, "");
+                    write.direct_messages.Add(curr.name, "");
+                }
+                catch
+                {
+
+                }
             }
 
         }

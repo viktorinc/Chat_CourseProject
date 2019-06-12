@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chat_Course_Project"
         mc:Ignorable="d"
-        Title="Window2" Height="450" Width="600">
+        Title="Connections" Height="450" Width="600">
     <Grid Background="#FF475059">
         <ScrollViewer Height="400" Width="550" Background="White" Name="scroll_history">
             

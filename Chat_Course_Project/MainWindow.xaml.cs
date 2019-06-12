@@ -137,20 +137,24 @@ namespace Chat_Course_Project
                     foreach(var el in all_users)
                     {
                         stats += el.ToString();
+
                     }
                     this.Scroll_Users.Content = stats;
+                    
                     fs.Close();
                 }
                 
 
             }
             catch { }
+
         }
         private void Login_Btn_Clicked(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
             login.ShowDialog();
             current_user= login.curr_user;
+            Cur_user_text.Text = $"Current user: {current_user.name}";
         }// міняємо юзера
 
         private void History_Clicked(object sender, RoutedEventArgs e)
