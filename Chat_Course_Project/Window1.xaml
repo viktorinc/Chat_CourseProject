@@ -7,9 +7,15 @@
         mc:Ignorable="d"
         Title="Log in" Height="250" Width="300">
     <Grid Background="#FF475059">
-        <Button FontSize="20" Background="#FFF37B53" Height="50" Width="100" Margin="99,122,93,44" Click="Log_In_Btn">
-            Login
+        <Button Content="Login" FontSize="20" Background="#FFF37B53" Height="50" Width="100" Margin="99,122,93,44" Click="Log_In_Btn">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </Button.Effect>
         </Button>
-        <TextBox Height="30" Margin="57,66,49,120" Name="usrname"/>
+        <TextBox Height="30" Margin="57,66,49,120" Name="usrname">
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </TextBox.Effect>
+        </TextBox>
     </Grid>
 </Window>

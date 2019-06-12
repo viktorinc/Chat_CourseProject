@@ -22,18 +22,12 @@ namespace Chat_Course_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        string User_Name="Anonymous"; // ім`я користувача, по дефолту - анонім
         User current_user;// поточний юзернейм
         List<User> all_users;// всі юзери
         public MainWindow()
         {
             InitializeComponent();
-            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
-            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
-            double windowWidth = this.Width;
-            double windowHeight = this.Height;
-            this.Left = (screenWidth / 2) - (windowWidth / 2);
-            this.Top = (screenHeight / 2) - (windowHeight / 2);
+
             First_Load();
         }
         public void Timer_creation()
@@ -45,6 +39,12 @@ namespace Chat_Course_Project
         }// створення таймера
         public void First_Load()
         {
+            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            this.Left = (screenWidth / 2) - (windowWidth / 2);
+            this.Top = (screenHeight / 2) - (windowHeight / 2);
             Login login = new Login();
             login.ShowDialog();
             BinaryFormatter formatter = new BinaryFormatter();
@@ -73,7 +73,11 @@ namespace Chat_Course_Project
                 }
             }
             catch { }
-            Cur_user_text.Text = $"Current user: {current_user.name}";
+            try
+            {
+                Cur_user_text.Text = $"Current user: {current_user.name}";
+            }
+            catch { }
             string hist = $"{current_user.name}: {DateTime.Now.ToShortDateString()}";
             using (StreamWriter w = File.AppendText("../../Connection_History.txt"))
             {
@@ -86,7 +90,7 @@ namespace Chat_Course_Project
         {
             try
             {
-                Main_Chat.Content += $"\n{current_user.name}: {Send_Box.Text}";
+                Main_Chat.Content += $"\n{current_user.name}: {Send_Box.Text}\t\t   \t{DateTime.Now.ToShortTimeString()}";
             }
             catch
             {
@@ -117,6 +121,7 @@ namespace Chat_Course_Project
         }
         private void DesTimer_Tick(object sender, EventArgs e) // тік таймера, кожну секунду десереалізує файл в scrollviewer
         {
+            Time.Content = $"{DateTime.Now.ToShortTimeString()}";
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
@@ -153,12 +158,19 @@ namespace Chat_Course_Project
             Window2 history = new Window2();
             history.ShowDialog();
         }
+
+        private void Contacts_Clicked(object sender, RoutedEventArgs e)
+        {
+            Window3 contacts_menu = new Window3(current_user);
+            contacts_menu.ShowDialog();
+        }
     }
     [Serializable]
     public class User
     {
        public string name { get; set; }
        public int count { get; set; }
+        public Dictionary<string, string> direct_messages = new Dictionary<string, string>();
        public User(string n, int c)
         {
             name = n;count = c;

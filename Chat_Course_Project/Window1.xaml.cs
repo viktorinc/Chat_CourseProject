@@ -23,7 +23,6 @@ namespace Chat_Course_Project
     {
        public List<User> users=new List<User>();
         public User curr_user;
-        Dictionary<string, string> dict;
         public Login()
         {
             InitializeComponent();

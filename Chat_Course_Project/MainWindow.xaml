@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Chat_Course_Project"
+        xmlns:s="clr-namespace:Chat_Course_Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="750" Width="700"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -23,6 +23,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+
     <Grid Background="#FF475059">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -35,26 +36,51 @@
             <ColumnDefinition Width="231"/>
             <ColumnDefinition Width="230*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer FontSize="20" FontWeight="Bold" Name="Main_Chat" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="20" Background="#FFF37B53" Foreground="White">
-
+        <ScrollViewer FontSize="20" FontWeight="Bold" Name="Main_Chat" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="20,41,20,89" Background="#FFF37B53" Foreground="White">
+            <ScrollViewer.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </ScrollViewer.Effect>
         </ScrollViewer>
-        <TextBox Grid.Row="2" Foreground="Black" Name="Send_Box" Grid.Column="1" Grid.ColumnSpan="2" Margin="15" Background="White" >
-
+        <TextBox Grid.Row="2" Foreground="Black" Name="Send_Box" Grid.Column="1" Grid.ColumnSpan="2" Margin="15,29,15,1" Background="White" >
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </TextBox.Effect>
         </TextBox>
-        <Button Grid.Column="2" Grid.Row="3" Margin="20 5 20 45" Content="Send" Click="Send_Btn_Clicked" Background="#FFF37B53">
-
+        <Button Grid.Column="2" Grid.Row="3" Margin="20,24,20,34" Content="Send" Click="Send_Btn_Clicked" Background="#FFF37B53">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </Button.Effect>
         </Button>
-        <ScrollViewer Name="Scroll_Users" FontSize="20" Background="White" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="169" Margin="10,10,0,0" Grid.Row="1">
-            Users and Count
+        <ScrollViewer  Name="Scroll_Users" FontSize="20" Background="White" HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="169" Margin="10,10,0,0" Grid.Row="1">
+            <ScrollViewer.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </ScrollViewer.Effect>
         </ScrollViewer>
-        <Button Margin="10,15,10,43" Content="Switch user" Click="Login_Btn_Clicked" Background="#FFF37B53" Grid.Row="2"/>
+        <Button Margin="10,15,10,43" Content="Switch user" Click="Login_Btn_Clicked" Background="#FFF37B53" Grid.Row="2">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </Button.Effect>
+        </Button>
         <TextBlock Margin="10,252,29,237" Grid.RowSpan="2" Foreground="White" FontSize="20">
             Users and Count
         </TextBlock>
-        <TextBlock FontSize="20" Foreground="White" Name="Cur_user_text">
+        <TextBlock FontSize="15" Foreground="White" Name="Cur_user_text" Margin="0,3,0,225">
             Current user:
         </TextBlock>
-        <Button Margin="10,54,10,4" Content="Connection history" Click="History_Clicked" Background="#FFF37B53" Grid.Row="2"/>
+        <Button Margin="10,54,10,4" Content="Connection history" Click="History_Clicked" Background="#FFF37B53" Grid.Row="2">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </Button.Effect>
+        </Button>
+        <Label Foreground="White" FontSize="15" Margin="208,0,0,234" Grid.Column="2" Name="Time"/>
+        <Button Margin="10,3,10,55" Content="Contacts" Click="Contacts_Clicked" Background="#FFF37B53" Grid.Row="3">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10"/>
+            </Button.Effect>
+        </Button>
+        <TextBlock Text="Global chat" Foreground="White" FontSize="25" Margin="173,3,141,222" Grid.ColumnSpan="2" Grid.Column="1">
+            
+        </TextBlock>
     </Grid>
 
 </Window>
